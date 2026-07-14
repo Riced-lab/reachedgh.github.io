@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ReachedGhana — 50+ Ghanaian Companies</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1: #0f1724;
+      --bg-2: #071027;
+      --card:#0f1724ff;
+      --muted: #9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+      --accent: #6c8cff;
+      --accent-2: #7cf7d9;
+      --radius:14px;
+      --shadow-1: 0 10px 30px rgba(2,6,23,0.6);
+      --glass-border: rgba(255,255,255,0.06);
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1000px 400px at 10% 10%, rgba(108,140,255,0.12), transparent 8%),
+                  radial-gradient(1000px 400px at 90% 90%, rgba(124,247,217,0.06), transparent 10%),
+                  linear-gradient(180deg,var(--bg-1), var(--bg-2));
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:36px 22px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      gap:20px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:1200px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:64px;height:64px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),#2b6bff);
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:800;font-size:20px;
+      box-shadow:0 8px 30px rgba(43,107,255,0.18);
+    }
+    h1{margin:0;font-size:20px;letter-spacing:-0.2px}
+    p.lead{margin:0;color:var(--muted);font-size:13px}
+
+    .controls{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    /* SEARCH */
+    .searchbar{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      border:1px solid var(--glass-border);
+      box-shadow:var(--shadow-1);
+      min-width:360px;
+      max-width:760px;
+    }
+    .search-left{display:flex;gap:10px;align-items:center;flex:1;}
+    .search-left svg{opacity:0.95}
+    input#search{
+      background:transparent;border:0;outline:0;color:inherit;font-size:16px;width:100%;
+    }
+    .controls .btn{
+      background:linear-gradient(90deg, rgba(108,140,255,0.16), rgba(124,247,217,0.06));
+      border:1px solid rgba(255,255,255,0.04);
+      color:var(--accent-2);
+      padding:8px 12px;border-radius:10px;font-weight:700;cursor:pointer;font-size:13px;
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .controls .toggle{
+      display:inline-flex;align-items:center;gap:8px;padding:8px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.03);
+    }
+    .small{font-size:13px;color:var(--muted)}
+
+    /* GRID */
+    .meta{
+      display:flex;justify-content:space-between;align-items:center;padding:18px 6px 6px 6px;gap:12px;flex-wrap:wrap;
+    }
+    .meta .left{display:flex;gap:12px;align-items:center}
+    .count{
+      background:linear-gradient(90deg,#0f1724 0%, rgba(255,255,255,0.02) 100%);
+      border-radius:12px;padding:8px 12px;border:1px solid rgba(255,255,255,0.03);
+      font-weight:700;font-size:13px;color:#dfe9ff;
+    }
+
+    .grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(3,1fr);
+      padding-bottom:28px;
+    }
+    @media (max-width:1000px){ .grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:640px){ .grid{grid-template-columns:1fr;} .searchbar{min-width:unset;width:100%} }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      display:flex;gap:14px;align-items:flex-start;
+    }
+    .card:hover{ transform: translateY(-8px) scale(1.01); border-color: rgba(108,140,255,0.12); box-shadow: 0 20px 50px rgba(2,6,23,0.6); }
+    .logo-wrap{
+      width:72px;height:72px;flex:0 0 72px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .logo-wrap img{width:64px;height:64px;object-fit:contain;display:block}
+
+    .card-body{flex:1}
+    .card h3{margin:0;font-size:16px;display:flex;align-items:center;gap:8px}
+    .card h3 a{color:#e6f0ff;text-decoration:none}
+    .domain{font-size:12px;color:var(--muted);margin-top:6px}
+    .desc{margin-top:10px;color:#cfe7ff;font-size:14px;line-height:1.35}
+    .tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted);cursor:pointer;border:1px solid rgba(255,255,255,0.02);
+      transition: transform .12s ease, background .12s, color .12s;
+    }
+    .tag:hover{ transform:translateY(-3px); color:var(--accent) }
+    .tag.active{ background:linear-gradient(90deg,#6c8cff,#7cf7d9); color:#041726; font-weight:700; border:0 }
+
+    .highlight{ background: linear-gradient(90deg,#fff09a,#ffd27a); color:#10202a; padding:0 3px; border-radius:4px; }
+
+    /* Suggestions */
+    .suggestions{
+      position:relative;
+    }
+    .suggest-list{
+      position:absolute;left:0;right:0;margin-top:8px;background:linear-gradient(180deg,#071027, #081428);
+      border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:6px;z-index:20;
+      box-shadow: 0 12px 40px rgba(2,6,23,0.5);
+      max-height:220px;overflow:auto;
+    }
+    .suggest-item{ padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer;display:flex;justify-content:space-between;gap:10px }
+    .suggest-item:hover{ background:rgba(255,255,255,0.02); color:#e6f0ff }
+    .suggest-item small{ color:var(--muted) }
+
+    .no-results{
+      text-align:center;padding:28px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px dashed rgba(108,140,255,0.08); color:var(--muted);
+    }
+
+    footer{ text-align:center;color:var(--muted);font-size:13px;padding-top:10px;padding-bottom:40px }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <header>
+      <div class="brand">
+        <div class="logo">RG</div>
+        <div>
+          <h1>ReachedGhana</h1>
+          <p class="lead">Explore 50 Ghanaian companies — click logos to visit, or search products quickly.</p>
+        </div>
+      </div>
+
+      <div class="controls" aria-hidden="false">
+        <div class="searchbar" role="search" aria-label="Search companies and products">
+          <div class="search-left">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.35-4.35" stroke="#9aa4b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="#9aa4b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="position:relative;flex:1" class="suggestions">
+              <input id="search" type="search" placeholder="Search by company or product (e.g., 'detergent', 'roofing', 'supplements')" aria-label="Search companies" />
+              <div id="suggestBox" class="suggest-list" style="display:none"></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <label class="toggle small" title="Filter search to products only">
+              <input id="productOnly" type="checkbox" style="width:16px;height:16px;accent-color:#7cf7d9;margin-right:6px" />
+              <span style="font-size:13px;color:var(--muted)">Products only</span>
+            </label>
+            <button id="clearBtn" class="btn" title="Clear search">Clear</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="meta">
+      <div class="left">
+        <div class="count" id="count">50 companies</div>
+        <div class="small" id="resultsInfo">Showing all companies</div>
+      </div>
+      <div class="small">Tip: click a product tag to filter by that product.</div>
+    </div>
+
+    <main>
+      <div id="grid" class="grid" aria-live="polite"></div>
+      <div id="noResults" class="no-results" style="display:none">No companies found. Try different keywords.</div>
+    </main>
+
+    <footer>
+      Data compiled for demo. Logos are fetched from external logo services (Clearbit / Google favicons) with local fallbacks. Verify links/logos before publishing.
+    </footer>
+  </div>
+
+  <script>
+    // 50 Ghanaian companies (best-effort domains). Verify before publishing.
+    const companies = [
+      { name: "Megamax Electronics Limited", url: "http://megamaxghana.com", products: "Affordable electronics for homes and businesses" },
+      { name: "Blash Security Doors", url: "https://blashdoors.com", products: "High-quality steel security doors" },
+      { name: "Ghana Rubber Company Limited", url: "http://ghanarubber.com", products: "Disposable containers for restaurants and takeout" },
+      { name: "KAN Ghana Ltd", url: "http://kanghana.com", products: "Gold, oils, and soaps" },
+      { name: "Promat Ghana Ltd", url: "http://promatghana.com", products: "IT and marketing solutions for businesses" },
+      { name: "Level3wireless", url: "http://level3wireless.com", products: "Internet solutions for homes and businesses" },
+      { name: "Marx Darwin Services", url: "https://marxdarwinservices.com", products: "Real estate, IT solutions & recruitment profiling" },
+      { name: "Mdain Hotel Amenities Supply Ghana", url: "http://mdainhotel.com", products: "Hotel supplies, personal care products" },
+      { name: "Nifty Vibb Enterprise", url: "https://niftyvibb.com", products: "Detergents and personal care products" },
+      { name: "TekisCorp", url: "https://tekiscorp.com", products: "Security solutions for homes and industries" },
+      { name: "Superlife World Ghana", url: "https://superlifeworld.com", products: "Health supplements and wellness products" },
+      { name: "Chris Mobility Africa", url: "https://chrismobilityafrica.com", products: "Car rental and transport" },
+      { name: "All Ghana Tours & Travels", url: "https://allghanatours.com", products: "Travel and tour packages" },
+      { name: "Bosmond Engineering Technology", url: "https://bosmondengineering.com", products: "Electrical contracting" },
+      { name: "Healthy Living", url: "https://healthylivingghana.com", products: "Health and wellness advisory" },
+      { name: "KedmasTech Satellite Solutions", url: "https://kedmastech.com", products: "Satellite TV and cable solutions" },
+      { name: "Compusite", url: "https://compusitegh.com", products: "Computer dealership" },
+      { name: "Axon Medical Supplies", url: "https://axonmedicalsupplies.com", products: "Medical equipment and supplies" },
+      { name: "AIMS Education Ghana", url: "https://aimseducation.com", products: "Education consultancy for studying abroad" },
+      { name: "Al-Haq Construction Company Ltd", url: "http://alhaqgroup.com", products: "Building contracting and home décor" },
+      { name: "Big Moses Estate Agency Company", url: "https://bigmosesestate.com", products: "Real estate agency" },
+      { name: "Bob Auto Mall", url: "https://bobautomall.com", products: "Car dealership" },
+      { name: "Caradise Ghana", url: "https://caradisegh.com", products: "Car and bus rental" },
+      { name: "City Roofing and Planning", url: "https://cityroofinggh.com", products: "Roofing materials and planning" },
+      { name: "DesignSynq", url: "http://designsynq.com", products: "Creative design and branding" },
+      { name: "AYA Data", url: "https://ayadata.ai", products: "Artificial intelligence data solutions" },
+      { name: "Mariseth Farms", url: "https://marisethfarms.com", products: "Agriculture/AgTech farm produce" },
+      { name: "Motito", url: "https://motito.co", products: "Financial loans and consumer credit" },
+      { name: "CodeLn", url: "https://codeln.com", products: "Software development and coding training" },
+      { name: "Cr3dentials", url: "https://cr3dentials.com", products: "Cybersecurity solutions" },
+
+      // 20 additional entries (to reach 50)
+      { name: "Farmerline", url: "https://farmerline.co", products: "Agritech services, farm inputs & market access" },
+      { name: "mPharma", url: "https://mpharma.com", products: "Pharmaceutical supply chain & affordability" },
+      { name: "Hubtel", url: "https://hubtel.com", products: "Payments, messaging & commerce platform" },
+      { name: "Leti Arts", url: "https://letiarts.com", products: "Digital games & interactive storytelling" },
+      { name: "mPedigree", url: "https://mpedigree.net", products: "Product verification & anti-counterfeit solutions" },
+      { name: "Asoriba", url: "https://asoriba.com", products: "Church management & mobile apps" },
+      { name: "AgroCenta", url: "https://agrocenta.com", products: "Agriculture marketplace & logistics" },
+      { name: "Zeepay", url: "https://zeepay.com", products: "Mobile payments & fintech services" },
+      { name: "ExpressPay", url: "https://expresspay.com", products: "Payment gateway & remittance" },
+      { name: "Rancard", url: "https://rancard.com", products: "Digital engagement & messaging" },
+      { name: "Tonaton", url: "https://tonaton.com", products: "Online classifieds & marketplace" },
+      { name: "Jumia Ghana", url: "https://jumia.com.gh", products: "E-commerce & online shopping" },
+      { name: "Melcom", url: "https://melcom.com.gh", products: "Retail store & consumer goods" },
+      { name: "Kasapreko Company Ltd", url: "https://kasapreko.com", products: "Beverages & spirits" },
+      { name: "Socius Ghana", url: "https://sociusgh.com", products: "Digital marketing & creative services" },
+      { name: "Farmer's Basket (example)", url: "https://farmersbasketgh.com", products: "Fresh produce distribution" },
+      { name: "Slyde Creative", url: "https://slydecreative.com", products: "Branding & web design" },
+      { name: "PaySwitch", url: "https://payswitch.africa", products: "Payment infrastructure" },
+      { name: "Express Logistics", url: "https://expresslogisticsgh.com", products: "Courier & freight services" },
+      { name: "GreenPath Foods", url: "https://greenpathfoods.com", products: "Organic food & agro-processing" }
+    ];
+
+    // DOM
+    const grid = document.getElementById('grid');
+    const searchInput = document.getElementById('search');
+    const productOnly = document.getElementById('productOnly');
+    const clearBtn = document.getElementById('clearBtn');
+    const countEl = document.getElementById('count');
+    const resultsInfo = document.getElementById('resultsInfo');
+    const noResults = document.getElementById('noResults');
+    const suggestBox = document.getElementById('suggestBox');
+
+    // Helpers
+    const escapeHtml = (str) => String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+    function domainFromUrl(u){
+      try{ const url = new URL(u); return url.hostname.replace(/^www\./,''); }catch(e){ return u; }
+    }
+
+    // Build an enriched dataset with logo URLs and tags
+    const enriched = companies.map(c => {
+      const domain = domainFromUrl(c.url);
+      // Clearbit + favicon fallback strategy: try clearbit first, fallback to google s2, fallback to generated svg
+      const logoClearbit = `https://logo.clearbit.com/${domain}`;
+      const logoFavicon = `https://www.google.com/s2/favicons?sz=128&domain=${domain}`;
+      // derive tags by splitting products by common separators and further split words for better tag matching
+      const tags = String(c.products).split(/[,|&\/]+/).map(s => s.trim()).filter(Boolean);
+      return {...c, domain, logoClearbit, logoFavicon, tags};
+    });
+
+    // Build product dictionary for suggestions & tag list
+    const productSet = new Map(); // product -> count
+    enriched.forEach(e => {
+      e.tags.forEach(t => {
+        const key = t.toLowerCase();
+        productSet.set(key, (productSet.get(key) || 0) + 1);
+      });
+    });
+    const productsList = Array.from(productSet.keys()).sort((a,b)=> productSet.get(b)-productSet.get(a));
+
+    // Render initial grid
+    function renderList(list, query=''){
+      grid.innerHTML = '';
+      if(list.length === 0){
+        noResults.style.display = 'block';
+        countEl.textContent = '0 companies';
+        resultsInfo.textContent = 'No results';
+        return;
+      }
+      noResults.style.display = 'none';
+      countEl.textContent = `${list.length} ${list.length===1?'company':'companies'}`;
+      resultsInfo.textContent = query ? `Showing ${list.length} matches for "${query}"` : 'Showing all companies';
+
+      for(const c of list){
+        const card = document.createElement('article');
+        card.className = 'card';
+        // logo img with fallback chain
+        const logoWrap = document.createElement('div');
+        logoWrap.className = 'logo-wrap';
+        const img = document.createElement('img');
+
+        // try clearbit first; onerror fallback to google s2; onerror fallback to initials SVG
+        img.src = c.logoClearbit;
+        img.alt = `${c.name} logo`;
+        img.loading = 'lazy';
+        img.onerror = function(){
+          // if current src is clearbit, fallback to google s2
+          if(this.src.includes('logo.clearbit.com')){
+            this.onerror = null;
+            this.src = c.logoFavicon;
+            return;
+          }
+          // fallback to generated initials SVG
+          const initials = c.name.split(/\s+/).slice(0,2).map(s => s[0] ? s[0].toUpperCase() : '').join('').substring(0,2);
+          const svg = encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='128' height='128'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='#6c8cff'/><stop offset='1' stop-color='#7cf7d9'/></linearGradient></defs><rect width='100%' height='100%' rx='12' fill='url(#g)'/><text x='50%' y='55%' font-family='Inter, Arial, sans-serif' font-size='48' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='700'>${escapeHtml(initials)}</text></svg>`);
+          this.onerror = null;
+          this.src = `data:image/svg+xml;charset=utf-8,${svg}`;
+        };
+
+        logoWrap.appendChild(img);
+
+        const body = document.createElement('div');
+        body.className = 'card-body';
+
+        // highlight query matches in name and products
+        const highlightedName = highlight(c.name, query);
+        const highlightedProducts = highlight(c.products, query);
+
+        const h = document.createElement('h3');
+        const a = document.createElement('a');
+        a.href = c.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.innerHTML = highlightedName;
+        h.appendChild(a);
+
+        const domain = document.createElement('div');
+        domain.className = 'domain';
+        domain.textContent = c.domain;
+
+        const desc = document.createElement('div');
+        desc.className = 'desc';
+        desc.innerHTML = highlightedProducts;
+
+        const tagsWrap = document.createElement('div');
+        tagsWrap.className = 'tags';
+        c.tags.forEach(t=>{
+          const btn = document.createElement('button');
+          btn.className = 'tag';
+          btn.type = 'button';
+          btn.textContent = t;
+          btn.title = `Filter by ${t}`;
+          btn.addEventListener('click', ()=>{
+            // set input to tag, toggle product-only, perform search
+            searchInput.value = t;
+            productOnly.checked = true;
+            performSearch();
+          });
+          tagsWrap.appendChild(btn);
+        });
+
+        body.appendChild(h);
+        body.appendChild(domain);
+        body.appendChild(desc);
+        body.appendChild(tagsWrap);
+
+        card.appendChild(logoWrap);
+        card.appendChild(body);
+        grid.appendChild(card);
+      }
+
+      // mark active tags matching current input
+      markActiveTags();
+    }
+
+    // Highlight helper
+    function escapeRegex(str){ return str.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+    function highlight(text, q){
+      if(!q) return escapeHtml(text);
+      const pattern = new RegExp('(' + escapeRegex(q) + ')', 'ig');
+      return escapeHtml(text).replace(pattern, '<span class="highlight">$1</span>');
+    }
+
+    // Filter logic (search by name and/or products)
+    function filter(query){
+      if(!query) return enriched.slice();
+      const q = query.trim().toLowerCase();
+      const onlyProducts = productOnly.checked;
+      return enriched.filter(c => {
+        const nameMatch = c.name.toLowerCase().includes(q);
+        const productsMatch = c.products.toLowerCase().includes(q) || c.tags.some(t=>t.toLowerCase().includes(q));
+        return onlyProducts ? productsMatch : (nameMatch || productsMatch);
+      });
+    }
+
+    // Debounce
+    function debounce(fn, ms=140){
+      let t;
+      return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); };
+    }
+
+    // Suggestions: show matching products and companies
+    function showSuggestions(q){
+      if(!q){ suggestBox.style.display='none'; suggestBox.innerHTML=''; return; }
+      const term = q.toLowerCase();
+      const prodMatches = productsList.filter(p => p.includes(term)).slice(0,8);
+      const companyMatches = enriched.filter(e => e.name.toLowerCase().includes(term)).slice(0,6).map(e=>e.name);
+      if(prodMatches.length===0 && companyMatches.length===0){ suggestBox.style.display='none'; suggestBox.innerHTML=''; return; }
+
+      suggestBox.innerHTML = '';
+      if(prodMatches.length){
+        prodMatches.forEach(p=>{
+          const item = document.createElement('div');
+          item.className = 'suggest-item';
+          item.innerHTML = `<div style="font-weight:700">${p}</div><small>${productSet.get(p)}</small>`;
+          item.addEventListener('click', ()=>{ searchInput.value = p; productOnly.checked = true; performSearch(); suggestBox.style.display='none'; });
+          suggestBox.appendChild(item);
+        });
+      }
+      if(companyMatches.length){
+        const hr = document.createElement('div');
+        hr.style.height='8px';
+        suggestBox.appendChild(hr);
+        companyMatches.forEach(n=>{
+          const item = document.createElement('div');
+          item.className = 'suggest-item';
+          item.innerHTML = `<div style="color:var(--muted)">${n}</div>`;
+          item.addEventListener('click', ()=>{ searchInput.value = n; productOnly.checked = false; performSearch(); suggestBox.style.display='none'; });
+          suggestBox.appendChild(item);
+        });
+      }
+      suggestBox.style.display = 'block';
+    }
+
+    const debouncedSuggest = debounce(showSuggestions, 120);
+
+    // perform search & render
+    function performSearch(){
+      const q = searchInput.value.trim();
+      const results = filter(q);
+      renderList(results, q);
+      // scroll to top of results
+      grid.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    const debouncedSearch = debounce(performSearch, 120);
+
+    // clear
+    function clearSearch(){
+      searchInput.value = '';
+      productOnly.checked = false;
+      performSearch();
+      searchInput.focus();
+      suggestBox.style.display='none';
+    }
+
+    clearBtn.addEventListener('click', clearSearch);
+    searchInput.addEventListener('input', (e) => {
+      debouncedSearch();
+      debouncedSuggest(e.target.value);
+    });
+    searchInput.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') clearSearch();
+      if(e.key === 'Enter'){ performSearch(); suggestBox.style.display='none'; }
+    });
+
+    // clicking outside suggestions closes it
+    document.addEventListener('click', (e)=>{
+      if(!e.target.closest('.suggestions')) suggestBox.style.display='none';
+    });
+
+    // mark active tags if matching search
+    function markActiveTags(){
+      const q = searchInput.value.trim().toLowerCase();
+      document.querySelectorAll('.tag').forEach(btn=>{
+        const t = btn.textContent.trim().toLowerCase();
+        if(q && t.includes(q)) btn.classList.add('active'); else btn.classList.remove('active');
+      });
+    }
+
+    // initial render
+    renderList(enriched, '');
+
+    // Expose for debugging in console
+    window._reachedghana = { enriched, filter, renderList };
+
+  </script>
+<p>contact at 0200193858 to add your business</p></body>
+  </html>
